@@ -1,0 +1,88 @@
+  <html>
+<title>CaseConverter</title>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />  
+        <link rel="stylesheet" href="../cc/bootstrap.min.css">
+        <script src="../cc/bootstrap.min.js"></script>
+
+    </head>
+    <body> 
+
+    	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="https://riyazmoinshaik.com">Riyazmoin Shaik</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" style="">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="https://riyazmoinshaik.com/about-me/">About Me</a>
+      </li>
+    </ul>
+  
+</nav>
+
+<form id="convert" action="/" method="post" name="convert">
+				<br>
+<br>	
+               <h1 style="text-align:center">CaseConverter by Riyazmoin Shaik</h1>  
+               <br>
+               <br>  
+               <p style="text-align: center; color: #fff; font-size: 24px;"> Enter or Paste your text to case convert </p> 
+               <div style="text-align: center">
+                   <input type="text" id="id" name="name" value="" onkeydown="makeUppercase()" style="height:250px; width:900px" />
+                </div>
+                <br>
+                <br>    
+                <div style="text-align: center">
+                <input type="button" value="Upper Case" onclick="makeUppercase()">
+                <input type="button" value="Lower Case" onclick="makeLowercase()">
+                <input type="button" value="Proper Case" onclick="makeTitlecase()">
+                </div>
+
+                <script>
+                    function makeUppercase() {
+                    document.convert.name.value = document.convert.name.value.toUpperCase();
+                    }
+                    function makeLowercase() {
+                    document.convert.name.value = document.convert.name.value.toLowerCase();
+                    }
+
+                   </script>
+                    
+                    <script type="text/javascript">
+                        /* 
+                          * To Title Case 2.1 – http://individed.com/code/to-title-case/
+                          * Copyright © 2008–2013 David Gouch. Licensed under the MIT License.
+                         */
+            
+                        String.prototype.toTitleCase = function(){
+                          var smallWords = /^(the|and|nor|or|yet|so|a|amid|an|apud|as|at|atop|but|by|down|for|from|in|into|like|mid|near|next|of|off|on|onto|out|over|pace|past|per|plus|pro|qua|sans|save|than|till|unto|up|upon|via|vice|vs?\.?|with)$/i;
+            
+                          return this.replace(/[A-Za-z0-9\u00C0-\u00FF]+[^\s-]*/g, function(match, index, title){
+                            if (index > 0 && index + match.length !== title.length &&
+                              match.search(smallWords) > -1 && title.charAt(index - 2) !== ":" &&
+                              (title.charAt(index + match.length) !== '-' || title.charAt(index - 1) === '-') &&
+                              title.charAt(index - 1).search(/[^\s-]/) < 0) {
+                              return match.toLowerCase();
+                            }
+            
+                            if (match.substr(1).search(/[A-Z]|\../) > -1) {
+                              return match;
+                            }
+            
+                            return match.charAt(0).toUpperCase() + match.substr(1);
+                          });
+                        };
+                    </script>
+
+<script type="text/javascript">
+   function makeTitlecase() {
+    document.convert.name.value = document.convert.name.value.toTitleCase();
+    }
+</script>
+
+
+
+    </body>
